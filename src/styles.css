@@ -59,6 +59,17 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-navy: var(--navy);
+  --color-surface: var(--surface);
+  --color-risk-high: var(--risk-high);
+  --color-risk-high-bg: var(--risk-high-bg);
+  --color-risk-medium: var(--risk-medium);
+  --color-risk-medium-bg: var(--risk-medium-bg);
+  --color-risk-low: var(--risk-low);
+  --color-risk-low-bg: var(--risk-low-bg);
+  --color-risk-info: var(--risk-info);
+  --color-risk-info-bg: var(--risk-info-bg);
+  --font-sans: "Inter", "Aptos", Arial, sans-serif;
 }
 
 :root {
