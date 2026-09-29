@@ -9,6 +9,7 @@ const NAV = [
   { to: "/risk-centre", label: "Risk Centre" },
   { to: "/decision-briefs", label: "Decision Briefs" },
   { to: "/data-sources", label: "Data Sources" },
+  { to: "/security", label: "Security & Data Protection" },
   { to: "/profile", label: "Profile" },
 ] as const;
 
@@ -24,7 +25,12 @@ export function DemoBanner() {
 export function Footer() {
   return (
     <footer className="mt-12 border-t border-border bg-surface px-6 py-4 text-center text-xs text-muted-foreground print:hidden">
-      CharterMind | SIH 2026 Demonstration MVP | Decision-support simulation only
+      <p>CharterMind | SIH 2026 Demonstration MVP | Decision-support simulation only</p>
+      <p className="mx-auto mt-1 max-w-4xl text-[11px]">
+        CharterMind MVP demonstrates security-by-design principles. Production use requires
+        approved hosting, security assessment, penetration testing, data-governance approval, user
+        training, and authorized integration with enterprise systems.
+      </p>
     </footer>
   );
 }
