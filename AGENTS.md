@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Demo auth/session and scenario inputs live in localStorage via src/lib/session.ts and src/lib/scenario-store.ts — CharterMind is a simulation MVP with no backend.
