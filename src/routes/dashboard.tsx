@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ShieldCheck } from "lucide-react";
 import {
   Area,
   CartesianGrid,
@@ -47,11 +48,19 @@ function Dashboard() {
 
   return (
     <AppShell>
-      <PageHeading
-        title="Good morning, Procurement Officer"
-        subtitle="East Coast India Bulk Cargo Decision Console"
-        notice="Demo Data / Decision-Support Simulation"
-      />
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <PageHeading
+          title="Good morning, Procurement Officer"
+          subtitle="East Coast India Bulk Cargo Decision Console"
+          notice="Demo Data / Decision-Support Simulation"
+        />
+        <Link
+          to="/security"
+          className="inline-flex items-center gap-1.5 rounded border border-border bg-surface px-2.5 py-1 text-xs font-medium text-navy hover:bg-accent"
+        >
+          <ShieldCheck className="h-3.5 w-3.5 text-primary" /> Secure Demo Environment
+        </Link>
+      </div>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {KPIS.map((k) => (
