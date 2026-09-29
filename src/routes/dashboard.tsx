@@ -99,18 +99,10 @@ function Dashboard() {
                   }}
                 />
                 <Area
-                  dataKey="upper"
+                  dataKey="band"
                   stroke="none"
                   fill="var(--chart-2)"
                   fillOpacity={0.18}
-                  connectNulls
-                  isAnimationActive={false}
-                />
-                <Area
-                  dataKey="lower"
-                  stroke="none"
-                  fill="var(--background)"
-                  fillOpacity={1}
                   connectNulls
                   isAnimationActive={false}
                 />

@@ -65,8 +65,7 @@ export type MarketPoint = {
   day: string;
   actual: number | null;
   forecast: number | null;
-  upper: number | null;
-  lower: number | null;
+  band: [number, number] | null;
 };
 
 export function buildMarketSeries(): MarketPoint[] {
@@ -82,8 +81,7 @@ export function buildMarketSeries(): MarketPoint[] {
       day: `D-${30 - i}`,
       actual: value,
       forecast: i === 29 ? value : null,
-      upper: i === 29 ? value : null,
-      lower: i === 29 ? value : null,
+      band: i === 29 ? [value, value] : null,
     });
   }
   let f = value;
@@ -94,8 +92,7 @@ export function buildMarketSeries(): MarketPoint[] {
       day: `F+${i}`,
       actual: null,
       forecast: f,
-      upper: Math.round((f + band) * 100) / 100,
-      lower: Math.round((f - band) * 100) / 100,
+      band: [Math.round((f - band) * 100) / 100, Math.round((f + band) * 100) / 100],
     });
   }
   return points;
