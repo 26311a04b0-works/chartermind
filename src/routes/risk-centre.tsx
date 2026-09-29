@@ -35,7 +35,7 @@ function RiskCentre() {
       prev.map((r, i) => {
         if (i !== 0 && i !== 3) return r;
         const idx = LEVELS.indexOf(r.level);
-        const nextLevel = LEVELS[(idx + 1) % LEVELS.length];
+        const nextLevel = LEVELS[(idx + 1) % LEVELS.length] ?? r.level;
         return { ...r, level: nextLevel };
       }),
     );

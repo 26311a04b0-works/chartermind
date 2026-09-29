@@ -69,18 +69,18 @@ function NewScenario() {
   function run(e: React.FormEvent) {
     e.preventDefault();
     const next: Record<string, string> = {};
-    if (!form.cargoType) next.cargoType = "Select a cargo type.";
+    if (!form.cargoType) next["cargoType"] = "Select a cargo type.";
     const qty = Number(form.quantity);
-    if (!form.quantity.trim()) next.quantity = "Enter cargo quantity in MT.";
+    if (!form.quantity.trim()) next["quantity"] = "Enter cargo quantity in MT.";
     else if (!Number.isFinite(qty) || qty <= 0 || qty > 250000)
-      next.quantity = "Quantity must be between 1 and 250,000 MT.";
-    if (!form.origin) next.origin = "Select an origin port.";
-    if (!form.destination) next.destination = "Select a destination port.";
-    if (!form.laycanStart) next.laycanStart = "Select a laycan start date.";
-    if (!form.laycanEnd) next.laycanEnd = "Select a laycan end date.";
+      next["quantity"] = "Quantity must be between 1 and 250,000 MT.";
+    if (!form.origin) next["origin"] = "Select an origin port.";
+    if (!form.destination) next["destination"] = "Select a destination port.";
+    if (!form.laycanStart) next["laycanStart"] = "Select a laycan start date.";
+    if (!form.laycanEnd) next["laycanEnd"] = "Select a laycan end date.";
     if (form.laycanStart && form.laycanEnd && form.laycanEnd < form.laycanStart)
-      next.laycanEnd = "Laycan end must be on or after laycan start.";
-    if (!form.priority) next.priority = "Select a procurement priority.";
+      next["laycanEnd"] = "Laycan end must be on or after laycan start.";
+    if (!form.priority) next["priority"] = "Select a procurement priority.";
     setErrors(next);
     if (Object.keys(next).length) {
       toast.error("Please correct the highlighted fields.");

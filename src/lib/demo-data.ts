@@ -77,7 +77,7 @@ export function buildMarketSeries(): MarketPoint[] {
     0.35, -0.25, -0.15, 0.3, 0.45, -0.5, 0.2, 0.15, -0.3, 0.4, 0.1, -0.2, 0.35, -0.15, 0.25,
   ];
   for (let i = 0; i < 30; i++) {
-    value = Math.round((value + seed[i % seed.length]) * 100) / 100;
+    value = Math.round((value + (seed[i % seed.length] ?? 0)) * 100) / 100;
     points.push({
       day: `D-${30 - i}`,
       actual: value,

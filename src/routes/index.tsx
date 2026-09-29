@@ -51,9 +51,9 @@ function LoginPage() {
   function submit(e: React.FormEvent) {
     e.preventDefault();
     const next: Record<string, string> = {};
-    if (!employeeId.trim()) next.employeeId = "Employee ID is required.";
-    if (!password.trim()) next.password = "Password is required.";
-    if (!role) next.role = "Select an access role.";
+    if (!employeeId.trim()) next["employeeId"] = "Employee ID is required.";
+    if (!password.trim()) next["password"] = "Password is required.";
+    if (!role) next["role"] = "Select an access role.";
     setErrors(next);
     if (Object.keys(next).length) return;
     setLoading(true);
@@ -84,8 +84,8 @@ function LoginPage() {
                 placeholder="PROC-ECI-001"
                 maxLength={40}
               />
-              {errors.employeeId ? (
-                <p className="text-xs text-destructive">{errors.employeeId}</p>
+              {errors["employeeId"] ? (
+                <p className="text-xs text-destructive">{errors["employeeId"]}</p>
               ) : null}
             </div>
 
@@ -98,8 +98,8 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 maxLength={64}
               />
-              {errors.password ? (
-                <p className="text-xs text-destructive">{errors.password}</p>
+              {errors["password"] ? (
+                <p className="text-xs text-destructive">{errors["password"]}</p>
               ) : null}
             </div>
 
@@ -117,7 +117,7 @@ function LoginPage() {
                   ))}
                 </SelectContent>
               </Select>
-              {errors.role ? <p className="text-xs text-destructive">{errors.role}</p> : null}
+              {errors["role"] ? <p className="text-xs text-destructive">{errors["role"]}</p> : null}
             </div>
 
             <Button type="submit" className="w-full" disabled={loading}>
