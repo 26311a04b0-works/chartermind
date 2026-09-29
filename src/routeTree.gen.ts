@@ -11,8 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DataSourcesRouteImport } from './routes/data-sources'
+import { Route as DecisionBriefsRouteImport } from './routes/decision-briefs'
 import { Route as NewScenarioRouteImport } from './routes/new-scenario'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as RiskCentreRouteImport } from './routes/risk-centre'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,9 +28,24 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataSourcesRoute = DataSourcesRouteImport.update({
+  id: '/data-sources',
+  path: '/data-sources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecisionBriefsRoute = DecisionBriefsRouteImport.update({
+  id: '/decision-briefs',
+  path: '/decision-briefs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewScenarioRoute = NewScenarioRouteImport.update({
   id: '/new-scenario',
   path: '/new-scenario',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RecommendationsRoute = RecommendationsRouteImport.update({
@@ -34,39 +53,85 @@ const RecommendationsRoute = RecommendationsRouteImport.update({
   path: '/recommendations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RiskCentreRoute = RiskCentreRouteImport.update({
+  id: '/risk-centre',
+  path: '/risk-centre',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/data-sources': typeof DataSourcesRoute
+  '/decision-briefs': typeof DecisionBriefsRoute
   '/new-scenario': typeof NewScenarioRoute
+  '/profile': typeof ProfileRoute
   '/recommendations': typeof RecommendationsRoute
+  '/risk-centre': typeof RiskCentreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/data-sources': typeof DataSourcesRoute
+  '/decision-briefs': typeof DecisionBriefsRoute
   '/new-scenario': typeof NewScenarioRoute
+  '/profile': typeof ProfileRoute
   '/recommendations': typeof RecommendationsRoute
+  '/risk-centre': typeof RiskCentreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/data-sources': typeof DataSourcesRoute
+  '/decision-briefs': typeof DecisionBriefsRoute
   '/new-scenario': typeof NewScenarioRoute
+  '/profile': typeof ProfileRoute
   '/recommendations': typeof RecommendationsRoute
+  '/risk-centre': typeof RiskCentreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/new-scenario' | '/recommendations'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/data-sources'
+    | '/decision-briefs'
+    | '/new-scenario'
+    | '/profile'
+    | '/recommendations'
+    | '/risk-centre'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/new-scenario' | '/recommendations'
-  id: '__root__' | '/' | '/dashboard' | '/new-scenario' | '/recommendations'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/data-sources'
+    | '/decision-briefs'
+    | '/new-scenario'
+    | '/profile'
+    | '/recommendations'
+    | '/risk-centre'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/data-sources'
+    | '/decision-briefs'
+    | '/new-scenario'
+    | '/profile'
+    | '/recommendations'
+    | '/risk-centre'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  DataSourcesRoute: typeof DataSourcesRoute
+  DecisionBriefsRoute: typeof DecisionBriefsRoute
   NewScenarioRoute: typeof NewScenarioRoute
+  ProfileRoute: typeof ProfileRoute
   RecommendationsRoute: typeof RecommendationsRoute
+  RiskCentreRoute: typeof RiskCentreRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -85,11 +150,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data-sources': {
+      id: '/data-sources'
+      path: '/data-sources'
+      fullPath: '/data-sources'
+      preLoaderRoute: typeof DataSourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decision-briefs': {
+      id: '/decision-briefs'
+      path: '/decision-briefs'
+      fullPath: '/decision-briefs'
+      preLoaderRoute: typeof DecisionBriefsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/new-scenario': {
       id: '/new-scenario'
       path: '/new-scenario'
       fullPath: '/new-scenario'
       preLoaderRoute: typeof NewScenarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/recommendations': {
@@ -99,14 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecommendationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/risk-centre': {
+      id: '/risk-centre'
+      path: '/risk-centre'
+      fullPath: '/risk-centre'
+      preLoaderRoute: typeof RiskCentreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  DataSourcesRoute: DataSourcesRoute,
+  DecisionBriefsRoute: DecisionBriefsRoute,
   NewScenarioRoute: NewScenarioRoute,
+  ProfileRoute: ProfileRoute,
   RecommendationsRoute: RecommendationsRoute,
+  RiskCentreRoute: RiskCentreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
